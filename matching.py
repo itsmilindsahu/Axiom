@@ -19,6 +19,7 @@ Design notes:
 
 import json
 import logging
+import os
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional, Tuple
@@ -30,7 +31,7 @@ from models import Claim
 
 logger = logging.getLogger("matching")
 
-MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
+MODEL_NAME = os.getenv("MODEL_NAME", "sentence-transformers/all-MiniLM-L6-v2")
 DEFAULT_CLAIMS_PATH = Path(__file__).parent / "data" / "claims.json"
 
 
