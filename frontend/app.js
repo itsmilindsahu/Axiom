@@ -28,6 +28,12 @@
     tplLoading: document.getElementById('tpl-loading-bubble'),
   };
 
+  const DEFAULT_API_BASE = 'https://axiom-41qr.onrender.com';
+
+  if (!els.baseUrl.value || els.baseUrl.value === 'http://localhost:8000') {
+    els.baseUrl.value = DEFAULT_API_BASE;
+  }
+
   const labels = {
     en: {
       placeholder: 'Paste the forwarded message here…',
@@ -326,7 +332,8 @@
     els.checkBtn.disabled = true;
     setStatus(labels[lang].checking, 'busy');
 
-    const url = (els.baseUrl.value || 'http://localhost:8000').replace(/\/+$/, '') + '/api/verify';
+    const baseUrl = (els.baseUrl.value || DEFAULT_API_BASE).replace(/\/+$/, '');
+    const url = baseUrl + '/api/verify';
     const rowId = 'r' + Date.now();
 
     try {

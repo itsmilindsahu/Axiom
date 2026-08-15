@@ -1,42 +1,21 @@
 """
 main.py
 -------
-FastAPI application for the WhatsApp Forward Checker backend.
+Simple verification script for testing the claims database.
+No API routes - just load and test directly.
 
-Endpoints:
-  GET  /api/health   -> basic liveness / readiness check
-  POST /api/verify    -> the core misinformation-matching endpoint
-
-Run locally with:
-  uvicorn main:app --reload --host 0.0.0.0 --port 8000
+Run with:
+  python main.py
 """
 
 import logging
-import os
-
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-
-from llm_fallback import get_llm_verdict
 from matching import ClaimMatcher
-from models import (
-    HealthResponse,
-    LLMVerifyResponse,
-    MatchedVerifyResponse,
-    UnmatchedVerifyResponse,
-    VerifyRequest,
-)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("main")
 
-# ---------------------------------------------------------------------------
-# Configuration
-# ---------------------------------------------------------------------------
-
-# Similarity threshold above which we consider a claim "matched".
-# Configurable via env var so it can be tuned without a code change/redeploy.
-SIMILARITY_THRESHOLD = float(os.getenv("SIMILARITY_THRESHOLD", "0.72"))
+# Similarity threshold above which we consider a claim "matched"
+SIMILARITY_THRESHOLD = 0.72
 
 GENERIC_CHECKLIST = [
     "Check the sender: is this from someone you personally know and trust, or an unknown/forwarded chain?",
@@ -49,115 +28,88 @@ GENERIC_CHECKLIST = [
     "If in doubt, don't forward it until you've verified it independently.",
 ]
 
-# ---------------------------------------------------------------------------
-# App + matcher setup
-# ---------------------------------------------------------------------------
 
-app = FastAPI(
-    title="WhatsApp Forward Checker API",
-    description=(
-        "Backend for verifying forwarded WhatsApp/social messages against a curated "
-        "database of known misinformation claims (health myths, financial scams, "
-        "and communal/political rumours), using multilingual (EN+HI) semantic matching."
-    ),
-    version="1.0.0",
-)
-
-# CORS enabled for all origins so any frontend (web, mobile webview, etc.) can call this API.
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,  # must be False when allow_origins is "*"
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-matcher = ClaimMatcher()
-
-
-@app.on_event("startup")
-def startup_event() -> None:
-    """Load the sentence-transformer model and precompute claim embeddings once."""
-    logger.info("Starting up: loading model and precomputing claim embeddings...")
-    matcher.load_claims()
-    logger.info(
-        "Startup complete. %d claims cached. Similarity threshold = %.2f",
-        matcher.claims_count,
-        SIMILARITY_THRESHOLD,
-    )
-
-
-# ---------------------------------------------------------------------------
-# Routes
-# ---------------------------------------------------------------------------
-
-@app.get("/api/health", response_model=HealthResponse, tags=["meta"])
-def health() -> HealthResponse:
-    """Basic health check. Also useful to confirm claims/embeddings loaded successfully."""
-    return HealthResponse(
-        status="ok",
-        claims_loaded=matcher.claims_count,
-        model_name=matcher.model_name,
-        similarity_threshold=SIMILARITY_THRESHOLD,
-    )
-
-
-@app.post(
-    "/api/verify",
-    response_model=None,  # union response handled manually below
-    tags=["verify"],
-    summary="Verify a forwarded message against the curated claims database",
-)
-def verify(payload: VerifyRequest):
+def verify_claim(text: str) -> dict:
     """
-    Embed the incoming text, compare it against all cached claim embeddings via
-    cosine similarity, and return either a matched claim (with verdict/explanation)
-    or a generic self-verification checklist if nothing matches confidently enough.
+    Verify a claim against the database.
+    Returns a dictionary with the verification result.
     """
     if matcher.store is None:
-        # Should not happen in normal operation since startup loads it, but guard anyway.
-        raise HTTPException(status_code=503, detail="Claims database is not ready yet. Try again shortly.")
+        return {"error": "Claims database not loaded"}
 
-    text = payload.text.strip()
+    text = text.strip()
     if not text:
-        raise HTTPException(status_code=400, detail="`text` must not be empty.")
+        return {"error": "Text must not be empty"}
 
     best_claim, score = matcher.best_match(text)
 
     if best_claim is not None and score >= SIMILARITY_THRESHOLD:
-        return MatchedVerifyResponse(
-            matched=True,
-            verdict=best_claim.verdict,
-            explanation=best_claim.explanation,
-            source_url=best_claim.source_url,
-            category=best_claim.category,
-            confidence=round(score, 4),
-            matched_claim_id=best_claim.id,
-            matched_claim_text=best_claim.claim_text,
-        )
+        return {
+            "matched": True,
+            "verdict": best_claim.verdict,
+            "explanation": best_claim.explanation,
+            "source_url": best_claim.source_url,
+            "category": best_claim.category,
+            "confidence": round(score, 4),
+            "matched_claim_id": best_claim.id,
+            "matched_claim_text": best_claim.claim_text,
+        }
 
+    # No match found - return checklist
     best_guess_confidence = round(score, 4) if best_claim is not None else None
-
-    llm_verdict = get_llm_verdict(text)
-    if llm_verdict is not None:
-        return LLMVerifyResponse(
-            verdict=llm_verdict.verdict,
-            explanation=llm_verdict.explanation,
-            confidence_label=llm_verdict.confidence,
-            recommend_manual_check=llm_verdict.recommend_manual_check,
-            checklist=GENERIC_CHECKLIST,
-            best_guess_confidence=best_guess_confidence,
-        )
-
-    # LLM fallback unavailable or failed - last resort: static checklist only.
-    return UnmatchedVerifyResponse(
-        matched=False,
-        checklist=GENERIC_CHECKLIST,
-        best_guess_confidence=best_guess_confidence,
-    )
+    return {
+        "matched": False,
+        "checklist": GENERIC_CHECKLIST,
+        "best_guess_confidence": best_guess_confidence,
+    }
 
 
 if __name__ == "__main__":
-    import uvicorn
+    # Initialize matcher
+    matcher = ClaimMatcher()
+    logger.info("Loading claims database...")
+    matcher.load_claims()
+    logger.info(
+        "✓ Loaded %d claims. Similarity threshold = %.2f",
+        matcher.claims_count,
+        SIMILARITY_THRESHOLD,
+    )
 
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    # Test with sample questions
+    print("\n" + "=" * 70)
+    print("CLAIM VERIFICATION TESTER")
+    print("=" * 70)
+
+    test_claims = [
+        "Lemon water cures cancer",
+        "Garlic protects from COVID",
+        "5G spreads coronavirus",
+        "WhatsApp lottery 25 lakh rupees",
+        "Cow urine cures diabetes",
+        "This is just a random question",
+    ]
+
+    for claim in test_claims:
+        print(f"\n📝 Testing: {claim}")
+        print("-" * 70)
+        result = verify_claim(claim)
+
+        if result["matched"]:
+            print(f"✓ MATCHED - Verdict: {result['verdict']}")
+            print(f"  Confidence: {result['confidence']}")
+            print(f"  Category: {result['category']}")
+            print(f"  Explanation: {result['explanation']}")
+            print(f"  Source: {result['source_url']}")
+        else:
+            conf = result.get("best_guess_confidence")
+            if conf:
+                print(f"✗ No match found (best confidence: {conf})")
+            else:
+                print(f"✗ No match found")
+            print(f"\n  Quick checklist:")
+            for i, tip in enumerate(result["checklist"], 1):
+                print(f"  {i}. {tip}")
+
+    print("\n" + "=" * 70)
+    print("✓ All tests complete!")
+    print("=" * 70)
