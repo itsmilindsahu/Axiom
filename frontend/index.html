@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Patterns — Verify before you forward</title>
+<meta name="description" content="Check a forwarded WhatsApp message against a verified misinformation database in English or Hindi." />
+<meta name="theme-color" content="#16222E" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="assets/icon-192.png" />
+<link rel="apple-touch-icon" href="assets/icon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Devanagari:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="shell" id="shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="wordmark">
+        <span class="wordmark-mark">P</span>
+        <span class="wordmark-text">Patterns</span>
+      </div>
+      <button class="icon-btn sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+    </div>
+
+    <button class="new-check-btn" id="newCheckBtn">
+      <span>+</span> New check
+    </button>
+
+    <div class="sidebar-section">
+      <p class="sidebar-label">Recent checks</p>
+      <ol class="history-list" id="historyList">
+        <li class="history-empty" id="historyEmpty">Nothing checked yet this session.</li>
+      </ol>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="pilot-badge" id="pilotToggle" aria-expanded="false" aria-controls="pilotPanel">
+        <span class="pilot-dot"></span>
+        Pilot · 24 verified claims
+        <span class="pilot-chevron">▾</span>
+      </button>
+
+      <div class="pilot-panel" id="pilotPanel" hidden>
+        <p>This pilot checks forwards against <strong>24 hand-verified claims</strong> across health, financial, and communal misinformation — enough to prove the English/Hindi matching pipeline end-to-end.</p>
+        <p class="pilot-panel-heading">How this scales past 24</p>
+        <ul>
+          <li>Auto-ingest new fact-checks from PIB Fact Check, WHO, and IFCN-verified outlets</li>
+          <li>Open a submission queue so verified fact-checkers can add claims directly</li>
+          <li>Move claims.json into a proper database with versioning and an audit trail</li>
+          <li>Expand beyond English/Hindi to more Indian languages</li>
+          <li>Use logged AI-fallback verdicts to flag which new claims to verify next</li>
+        </ul>
+      </div>
+
+      <div class="lang-row">
+        <span class="lang-row-label">Language</span>
+        <div class="lang-toggle">
+          <button id="lang-en" class="lang-btn active" data-lang="en">EN</button>
+          <button id="lang-hi" class="lang-btn" data-lang="hi">HI</button>
+        </div>
+      </div>
+
+      <details class="api-config">
+        <summary>API endpoint</summary>
+        <input id="baseUrl" type="url" value="http://localhost:8000" placeholder="https://your-api.example.com" aria-label="API base URL">
+      </details>
+    </div>
+  </aside>
+
+  <div class="sidebar-scrim" id="sidebarScrim"></div>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+
+    <header class="topbar">
+      <button class="icon-btn sidebar-open" id="sidebarOpen" aria-label="Open menu">☰</button>
+      <div class="topbar-brand">
+        <span class="wordmark-mark small">P</span>
+        <span class="topbar-title">Patterns</span>
+      </div>
+      <div class="status-indicator">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status" class="status-text">Ready</span>
+      </div>
+    </header>
+
+    <main class="thread" id="thread" aria-live="polite">
+      <div class="empty-state" id="emptyState">
+        <div class="empty-stamp" aria-hidden="true">
+          <svg viewBox="0 0 120 120" width="72" height="72">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="4"/>
+            <circle cx="60" cy="60" r="42" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M35 62 L52 78 L86 40" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 id="emptyHeading">Verify before you forward</h1>
+        <p id="emptySub">Paste a forwarded WhatsApp or social message below. Patterns checks it in English or Hindi against a verified claims database — no account, no signup.</p>
+        <div class="empty-examples" id="emptyExamples">
+          <span class="empty-examples-label">Try one</span>
+          <button class="example-chip" data-example="Drinking hot water with lemon every morning cures cancer.">Lemon water cures cancer</button>
+          <button class="example-chip" data-example="आपने व्हाट्सएप लकी ड्रॉ में 25 लाख रुपये की लॉटरी जीती है">WhatsApp lucky draw lottery</button>
+          <button class="example-chip" data-example="Vaccines contain microchips to track people.">Vaccine microchips</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="composer-wrap">
+      <div class="composer">
+        <button class="composer-icon-btn" id="pasteBtn" title="Paste from clipboard" aria-label="Paste from clipboard">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/></svg>
+        </button>
+        <textarea
+          id="message"
+          rows="1"
+          maxlength="5000"
+          placeholder="Paste the forwarded message here…"
+          aria-label="Message to verify"
+          spellcheck="false"
+        ></textarea>
+        <button id="checkBtn" class="send-btn" aria-label="Check message">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <p class="composer-hint">Patterns can be wrong. Always cross-check anything about money, health, or elections yourself. · <span id="charCount">0</span>/5000</p>
+    </footer>
+
+  </div>
+</div>
+
+<!-- message bubble templates -->
+<template id="tpl-user-bubble">
+  <div class="msg msg-user">
+    <div class="bubble bubble-user"><p class="bubble-text"></p></div>
+  </div>
+</template>
+
+<template id="tpl-loading-bubble">
+  <div class="msg msg-assistant msg-loading">
+    <div class="bubble bubble-assistant bubble-loading">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+  </div>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>
