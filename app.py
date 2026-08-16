@@ -1,12 +1,11 @@
 """
 app.py
 ------
-Runs on Hugging Face Spaces (Gradio SDK).
-Mounts the FastAPI claim-verification endpoints onto Gradio's uvicorn server
-so /api/verify and /api/health are reachable alongside the Gradio UI.
+FastAPI + Gradio entry point for Hugging Face Spaces.
+Exposes /api/verify and /api/health for the frontend.
 """
 
-import uvicorn
+import logging
 import gradio as gr
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,9 +13,17 @@ from pydantic import BaseModel
 
 from matching import ClaimMatcher
 
-# ── FastAPI ────────────────────────────────────────────────────────────────────
-fast_app = FastAPI(title="Axiom Claim Verifier API", version="1.0.0")
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("app")
 
+# 1. Initialize FastAPI app
+fast_app = FastAPI(
+    title="Axiom Claim Verifier API",
+    description="Verify claims against curated database",
+    version="1.0.0"
+)
+
+# 2. Enable CORS for GitHub Pages frontend
 fast_app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -37,16 +44,14 @@ GENERIC_CHECKLIST = [
     "If in doubt, don't forward it until you've verified it independently.",
 ]
 
-_matcher = None
-
-
-def get_matcher():
-    """Lazy-load the ClaimMatcher on first request."""
-    global _matcher
-    if _matcher is None:
-        _matcher = ClaimMatcher()
-        _matcher.load_claims()
-    return _matcher
+# 3. Pre-load matcher at startup
+logger.info("Initializing ClaimMatcher...")
+matcher = ClaimMatcher()
+try:
+    matcher.load_claims()
+    logger.info("Claims loaded successfully!")
+except Exception as e:
+    logger.error("Failed to load claims: %s", e)
 
 
 class VerifyRequest(BaseModel):
@@ -55,22 +60,23 @@ class VerifyRequest(BaseModel):
 
 @fast_app.get("/api/health")
 def health():
-    try:
-        matcher = get_matcher()
-        return {"status": "ok", "claims_loaded": matcher.claims_count, "model_name": matcher.model_name}
-    except Exception as e:
-        return {"status": "error", "error": str(e)}
+    return {
+        "status": "ok" if matcher.store is not None else "degraded",
+        "claims_loaded": matcher.claims_count,
+        "model_name": matcher.model_name,
+    }
 
 
 @fast_app.post("/api/verify")
 def verify(payload: VerifyRequest):
+    if matcher.store is None:
+        raise HTTPException(status_code=503, detail="Claims database not ready.")
+    
+    text = payload.text.strip()
+    if not text:
+        raise HTTPException(status_code=400, detail="Text must not be empty.")
+
     try:
-        matcher = get_matcher()
-        if matcher.store is None:
-            raise HTTPException(status_code=503, detail="Claims database not ready.")
-        text = payload.text.strip()
-        if not text:
-            raise HTTPException(status_code=400, detail="Text must not be empty.")
         best_claim, score = matcher.best_match(text)
         if best_claim is not None and score >= SIMILARITY_THRESHOLD:
             return {
@@ -83,35 +89,28 @@ def verify(payload: VerifyRequest):
                 "matched_claim_id": best_claim.id,
                 "matched_claim_text": best_claim.claim_text,
             }
+
         return {
             "matched": False,
             "checklist": GENERIC_CHECKLIST,
             "best_guess_confidence": round(score, 4) if best_claim else None,
         }
-    except HTTPException:
-        raise
     except Exception as e:
+        logger.error("Error verifying claim: %s", e)
         return {"matched": False, "error": str(e), "checklist": GENERIC_CHECKLIST}
 
 
-# ── Gradio UI (minimal — required by HF Spaces) ────────────────────────────────
-with gr.Blocks(title="Axiom API") as demo:
+# 4. Gradio UI placeholder
+with gr.Blocks(title="Axiom API") as gradio_ui:
     gr.Markdown("""
-# Axiom — Claim Verification API
+    # Axiom — Claim Verification API
+    
+    This space runs the backend API for **Axiom** fact-checking system.
+    
+    - **Frontend**: [https://itsmilindsahu.github.io/Axiom/](https://itsmilindsahu.github.io/Axiom/)
+    - **Health Check**: `/api/health`
+    - **Verify Endpoint**: `/api/verify`
+    """)
 
-This Space hosts the backend API for the **Axiom** fact-checking app.
-
-### Endpoints
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/api/health` | Health check |
-| `POST` | `/api/verify` | Verify a claim (`{"text": "..."}`) |
-
-👉 **[Open the app](https://itsmilindsahu.github.io/Axiom/)**
-""")
-
-# Mount Gradio onto FastAPI — Gradio UI at "/" and FastAPI routes at /api/*
-app = gr.mount_gradio_app(fast_app, demo, path="/")
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=7860)
+# 5. Mount Gradio UI onto FastAPI app
+app = gr.mount_gradio_app(fast_app, gradio_ui, path="/")
