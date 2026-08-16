@@ -281,7 +281,7 @@
   // ── Local Client-Side Claim Matcher (0ms, 100% uptime) ──────────────────────
   function verifyClaimLocally(text) {
     const cleanText = text.toLowerCase();
-    const words = cleanText.split(/[\s,.:;!?"'()\-[\]]+/filter(w => w.length > 1));
+    const words = cleanText.split(/[\s,.:;!?"'()\-[\]]+/).filter(w => w.length > 1);
 
     let bestClaim = null;
     let bestScore = 0;
