@@ -3,7 +3,9 @@ title: Axiom
 emoji: 🔍
 colorFrom: blue
 colorTo: indigo
-sdk: docker
+sdk: gradio
+app_file: app.py
+sdk_version: 5.38.0
 pinned: false
 license: mit
 ---
