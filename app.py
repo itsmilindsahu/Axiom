@@ -71,7 +71,7 @@ def health():
 def verify(payload: VerifyRequest):
     if matcher.store is None:
         raise HTTPException(status_code=503, detail="Claims database not ready.")
-    
+
     text = payload.text.strip()
     if not text:
         raise HTTPException(status_code=400, detail="Text must not be empty.")
@@ -100,17 +100,15 @@ def verify(payload: VerifyRequest):
         return {"matched": False, "error": str(e), "checklist": GENERIC_CHECKLIST}
 
 
-# 4. Gradio UI placeholder
-with gr.Blocks(title="Axiom API") as gradio_ui:
+with gr.Blocks(title="Axiom API") as demo:
     gr.Markdown("""
     # Axiom — Claim Verification API
     
-    This space runs the backend API for **Axiom** fact-checking system.
+    Backend API for **Axiom** fact-checking system.
     
     - **Frontend**: [https://itsmilindsahu.github.io/Axiom/](https://itsmilindsahu.github.io/Axiom/)
-    - **Health Check**: `/api/health`
-    - **Verify Endpoint**: `/api/verify`
+    - **Health**: `/api/health`
+    - **Verify**: `/api/verify`
     """)
 
-# 5. Mount Gradio UI onto FastAPI app
-app = gr.mount_gradio_app(fast_app, gradio_ui, path="/")
+app = gr.mount_gradio_app(fast_app, demo, path="/")
