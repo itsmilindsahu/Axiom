@@ -1,0 +1,8 @@
+{
+  "buildCommand": "pip install -r requirements.txt",
+  "installCommand": "pip install -r requirements.txt",
+  "framework": "fastapi",
+  "env": {
+    "MODEL_NAME": "sentence-transformers/all-MiniLM-L6-v2"
+  }
+}
