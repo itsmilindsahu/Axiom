@@ -28,7 +28,7 @@
     tplLoading: document.getElementById('tpl-loading-bubble'),
   };
 
-  const DEFAULT_API_BASE = 'https://axiom-41qr.onrender.com';
+  const DEFAULT_API_BASE = 'https://itsmilindsahu-axiom.hf.space';
 
   if (!els.baseUrl.value || els.baseUrl.value === 'http://localhost:8000') {
     els.baseUrl.value = DEFAULT_API_BASE;
