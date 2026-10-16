@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arbitrage-free volatility surfaces | Axiom Labs</title><meta name="description" content="Gaussian process interpolation of implied volatility surfaces with no-arbitrage built into the covariance."><meta name="theme-color" content="#07090f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2307090f'/%3E%3Cpath d='M16 6l9 20h-4l-1.6-4h-6.8L11 26H7z' fill='%23e8b26a'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="style.css"></head><body>
+<nav><b><a href="index.html">Axiom Labs</a></b><div><a href="projects.html" aria-current="page">Projects</a><a href="people.html">People</a><a href="join.html">Join</a><a href="join.html#contact">Contact</a></div></nav>
+<header class="hero"><canvas data-fx="gp" aria-hidden="true"></canvas><div class="hin"><h1>Volatility surfaces that cannot be arbitraged.</h1>
+<p class="lead">Standard methods fit an implied volatility surface first, then smooth or project it to remove arbitrage. We put the no-arbitrage constraints into the covariance of a Gaussian process, so every interpolated surface already respects them.</p><p class="cap">Illustration: a Gaussian process surface. Move over it.</p></div></header>
+<main>
+<dl class="facts"><dt>Authors</dt><dd>Milind Sahu, Darun, Latheesh Roy</dd><dt>Status</dt><dd>Preprint, August 2026</dd><dt>Paper</dt><dd><a href="https://doi.org/10.13140/RG.2.2.33170.62400" target="_blank" rel="noopener">10.13140/RG.2.2.33170.62400</a></dd></dl>
+<h2>Why it matters</h2>
+<p>Post-hoc smoothing can distort prices that traders rely on. Building the constraints in means no projection step, and the model still reports its own uncertainty.</p>
+<h2>Open problems</h2>
+<p>Shape constraints such as monotonicity and convexity in the covariance of other surfaces. Optimal transport kernels for regression on distributions. If either interests you, <a href="join.html">get in touch</a>.</p>
+<h2>Cite</h2><pre class="bib" id="b1">@article{sahu2026arbitragefree,
+  title={Arbitrage-free Gaussian process interpolation for implied volatility surfaces},
+  author={Sahu, Milind and Darun, A. and Roy, Latheesh},
+  journal={Preprint / ResearchGate},
+  doi={10.13140/RG.2.2.33170.62400},
+  year={2026}
+}</pre><button class="btn ghost" onclick="copyBib('b1',this)">Copy BibTeX</button></main>
+<footer><span>&copy; 2026 Axiom Labs. Made by IISER Tirupati students. Independent, and run without any administration.</span><span><a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="https://github.com/itsmilindsahu">GitHub</a> &nbsp;&middot;&nbsp; <a href="https://linkedin.com/in/itsmilindsahu">LinkedIn</a></span></footer>
+<script src="site.js"></script><script src="fx.js"></script></body></html>

@@ -1,0 +1,2 @@
+function copyBib(id,b){navigator.clipboard.writeText(document.getElementById(id).textContent).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy BibTeX'},2000)})}
+function sendForm(e){e.preventDefault();var f=e.target.elements,t=f.interest.value;location.href='mailto:milind20251175@students.iisertirupati.ac.in?subject='+encodeURIComponent('Axiom Labs: '+t)+'&body='+encodeURIComponent('Name: '+f.who.value+'\nAbout: '+t+'\n\n'+f.msg.value)}

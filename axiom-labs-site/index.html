@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Axiom Labs</title>
+<meta name="description" content="Axiom Labs is an independent, student-run research group working on Gaussian processes, optimal transport, spectroscopy and energy systems.">
+<meta name="theme-color" content="#07090f">
+<meta property="og:title" content="Axiom Labs"><meta property="og:description" content="Axiom Labs is an independent, student-run research group working on Gaussian processes, optimal transport, spectroscopy and energy systems."><meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2307090f'/%3E%3Cpath d='M16 6l9 20h-4l-1.6-4h-6.8L11 26H7z' fill='%23e8b26a'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchOrganization","name":"Axiom Labs","foundingDate":"2025","founder":{"@type":"Person","name":"Milind Sahu"}}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@300;400;500&display=swap">
+<style>
+:root{--bg:#07090f;--ink:#e9e8e4;--mute:#8e96a8;--amber:#e8b26a;--blue:#7b93ff;--d:"Syne","Helvetica Neue",Arial,sans-serif;--b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:300 16px/1.7 var(--b);-webkit-font-smoothing:antialiased}
+a{color:var(--amber);text-underline-offset:4px}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block}
+nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:calc(18px + env(safe-area-inset-top,0px)) 28px 18px;font-size:14px}
+nav b{font:800 18px var(--d);letter-spacing:.02em}
+nav div a{color:var(--mute);text-decoration:none;margin-left:22px}
+nav div a:hover{color:var(--ink)}
+#p{position:fixed;right:14px;top:20%;height:60%;width:2px;background:#ffffff1a;z-index:5}
+#p i{display:block;width:100%;height:100%;background:var(--amber);transform-origin:top;transform:scaleY(0)}
+.s{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;padding:110px 8vw}
+.s.r{justify-content:flex-end}
+.t{max-width:30em;will-change:opacity,transform}
+h1{font:600 clamp(32px,5vw,72px)/1.0 var(--d);letter-spacing:-.03em;margin:0 0 24px}
+h2{font:600 clamp(24px,3.8vw,52px)/1.05 var(--d);letter-spacing:-.02em;margin:0 0 20px}
+.t p{margin:0 0 16px;font-weight:300;color:#bfc4cf}
+.m{color:var(--mute);font-size:14px;font-weight:300}
+.m b{color:#ced2dc;font-weight:500}
+.hint{color:var(--mute);font-size:13px;margin-top:36px;font-weight:300;letter-spacing:.02em}
+.tag-bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+.tag{font-size:11px;text-transform:uppercase;letter-spacing:0.06em;padding:3px 9px;border-radius:3px;background:rgba(123,147,255,0.08);color:var(--blue);border:1px solid rgba(123,147,255,0.2);font-weight:500}
+.tag.gold{background:rgba(232,178,106,0.08);color:var(--amber);border-color:rgba(232,178,106,0.25)}
+.pub-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:10px 0 14px}
+.pub-btn{font-size:13px;color:var(--amber);text-decoration:none;cursor:pointer;background:none;border:none;padding:0;font-family:inherit}
+.pub-btn:hover{color:var(--ink);text-decoration:underline}
+.bibtex-box{display:none;margin-top:10px;padding:12px;background:#0d111a;border:1px solid rgba(255,255,255,0.1);border-radius:4px;font-family:monospace;font-size:11px;color:#cbd2e1;white-space:pre;overflow-x:auto;position:relative}
+.bibtex-box.open{display:block}
+.copy-badge{font-size:10px;text-transform:uppercase;letter-spacing:0.05em;padding:2px 7px;background:rgba(255,255,255,0.08);border-radius:3px;cursor:pointer;float:right;margin-bottom:6px;color:var(--mute)}
+.copy-badge:hover{background:var(--amber);color:#07090f}
+.awards-list{display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.award-item{display:flex;gap:10px;font-size:13px;line-height:1.5;color:#bac0cd}
+.award-badge{font-size:10px;text-transform:uppercase;letter-spacing:0.04em;padding:2px 6px;border-radius:2px;background:rgba(232,178,106,0.15);color:var(--amber);height:fit-content;white-space:nowrap}
+.members{display:flex;flex-direction:column;gap:18px;margin:24px 0 24px}
+.member{padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:4px}
+.member-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.member-name{font:600 16px var(--d);color:var(--ink);letter-spacing:0.01em}
+.member-role{font-size:12px;color:var(--amber);text-transform:uppercase;letter-spacing:0.04em}
+.member p{margin:0;font-size:14px;line-height:1.6;color:#aab1c0;font-weight:300}
+@media (max-width:800px){.s{padding:100px 24px}.t{background:#07090fb3;padding:18px;margin:0 -18px;border-radius:2px}nav div a{margin-left:14px}}
+.s.x{display:block;min-height:0;padding:70px 8vw}
+.w{max-width:1040px;margin:0 auto;padding:36px;background:#07090fd6;border:1px solid #ffffff12;border-radius:4px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.w p{color:#bfc4cf;margin:0 0 14px}
+h3{font:600 18px/1.2 var(--d);margin:0 0 8px;letter-spacing:-.01em}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin:28px 0}
+.col{border-left:1px solid var(--amber);padding-left:16px}
+.col p{font-size:14px;margin:0;color:#aab1c0}
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
+.prob{padding:14px 0;border-top:1px solid #ffffff14}
+.prob p{font-size:14px;margin:0 0 8px}
+.tl{list-style:none;margin:0;padding:0 0 0 18px;border-left:1px solid #ffffff22}
+.tl li{position:relative;margin:0 0 22px;font-size:14px;color:#bfc4cf}
+.tl li:before{content:"";position:absolute;left:-23px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--amber)}
+.tl time{display:block;font-size:12px;color:var(--mute)}
+.steps{margin:0 0 28px;padding-left:20px;color:#bfc4cf}
+.steps li{margin-bottom:8px}
+details{border-top:1px solid #ffffff14;padding:12px 0}
+details:last-child{border-bottom:1px solid #ffffff14}
+summary{cursor:pointer;font:500 15px var(--b);color:var(--ink)}
+summary:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+details p{margin:10px 0 0;font-size:14px}
+.member.open{border-style:dashed;border-color:rgba(232,178,106,.4)}
+form{display:grid;gap:12px;margin-top:20px}
+label{font-size:13px;color:var(--mute);display:grid;gap:4px}
+input,select,textarea{font:inherit;color:var(--ink);background:#0d111a;border:1px solid #ffffff1f;border-radius:4px;padding:10px 12px}
+.btn{font:500 14px var(--b);background:var(--amber);color:#07090f;border:0;border-radius:4px;padding:11px 18px;cursor:pointer;justify-self:start}
+.btn.ghost{background:none;color:var(--amber);border:1px solid rgba(232,178,106,.4)}
+footer{position:relative;z-index:2;padding:40px 8vw calc(40px + env(safe-area-inset-bottom,0px));font-size:13px;color:var(--mute);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;background:#07090fd9}
+footer a{color:var(--mute)}
+.skip{position:absolute;left:-999px;top:8px;z-index:9;background:var(--amber);color:#07090f;padding:8px 12px}
+.skip:focus{left:8px}
+nav div a.on{color:var(--amber)}
+.mb{display:none;background:none;border:1px solid #ffffff33;color:var(--ink);border-radius:4px;padding:6px 10px;font:inherit}
+@media (max-width:800px){.two{grid-template-columns:1fr;gap:28px}.w{padding:22px}.s.x{padding:50px 20px}.mb{display:block}nav div{display:none;position:absolute;top:100%;left:0;right:0;background:#07090ff2;padding:8px 24px 16px;flex-direction:column}nav div.show{display:flex}nav div a{margin:0;padding:10px 0}}
+.stats{display:flex;flex-wrap:wrap;gap:24px 56px;margin:32px 0 6px}
+.stats b{display:block;font:600 clamp(34px,5vw,54px)/1 var(--d);letter-spacing:-.03em}
+.stats span{font-size:13px;color:var(--mute)}
+.tick{overflow:hidden;margin-top:30px;border-top:1px solid #ffffff14;border-bottom:1px solid #ffffff14;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tk{display:flex;width:max-content;padding:12px 0;animation:tk 50s linear infinite;font-size:13px;color:#bfc4cf;white-space:nowrap}
+.tk span{margin-right:44px}
+.tick:hover .tk{animation-play-state:paused}
+@keyframes tk{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tk{animation:none}.tick{overflow-x:auto}}
+.repos{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:20px 0}
+.repo{display:block;padding:16px;border:1px solid #ffffff1a;border-radius:6px;color:inherit;text-decoration:none;background:#0d111a99;transition:transform .2s,border-color .2s}
+.repo:hover{transform:translateY(-3px);border-color:var(--amber)}
+.repo b{display:block;font:600 15px var(--d);color:var(--ink);word-break:break-word}
+.repo p{font-size:13px;margin:6px 0 10px;color:#aab1c0}
+.repo span{font-size:12px;color:var(--mute)}
+.pub-actions a.go{border:1px solid rgba(232,178,106,.45);border-radius:999px;padding:4px 14px;text-decoration:none;transition:background .2s,color .2s}
+.pub-actions a.go:hover{background:var(--amber);color:#07090f}
+@media (max-width:800px){h1{font-size:clamp(44px,13vw,64px)}h2{font-size:clamp(26px,7vw,36px)}.s{min-height:100svh}.s.x{min-height:0}.stats b{font-size:36px}.cols{gap:22px}}
+@media (max-width:560px){.s.x{padding:44px 14px}.w{padding:20px 18px}input,select,textarea{font-size:16px}footer{padding:28px 18px calc(32px + env(safe-area-inset-bottom,0px))}}
+</style>
+</head>
+<body>
+<canvas id="c" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+<nav><b><a href="#top" style="color:inherit;text-decoration:none">Axiom Labs</a></b><button class="mb" id="mb" aria-expanded="false" aria-controls="nl">Menu</button><div id="nl"><a href="#about">About</a><a href="projects.html">Projects</a><a href="people.html">People</a><a href="join.html">Join</a><a href="#e">Contact</a></div></nav>
+<div id="p"><i></i></div>
+<main id="main">
+<section class="s" id="top"><div class="t">
+<h1>Axiom<br>Labs</h1>
+<p>A small independent research group run by students. We work on mathematical models of uncertainty and structure, and on the software that makes them usable. We start from axioms, not assumptions.</p>
+<p class="hint">Scroll to move through the work.</p>
+</div></section>
+
+<section class="s x" id="about"><div class="w">
+<h2>What we do.</h2>
+<p class="m">Theory &rarr; Algorithms &rarr; Intelligence</p>
+<div class="cols">
+<div class="col"><h3>Algorithms and complexity</h3><p>Efficient algorithms with provable guarantees. Not just &ldquo;it works&rdquo; but &ldquo;it works because&hellip;&rdquo;</p></div>
+<div class="col"><h3>Optimization theory</h3><p>Convex and non-convex optimization for real systems: energy, infrastructure and logistics.</p></div>
+<div class="col"><h3>Machine learning with foundations</h3><p>Systems you can reason about, not black boxes.</p></div>
+<div class="col"><h3>Energy systems analytics</h3><p>Computational tools for monitoring, disaggregation and policy optimisation.</p></div>
+</div>
+<p class="m"><b>How we work.</b> We start from axioms. Every prediction points back to evidence. Code and papers are open by default. The team is small, so everyone owns something.</p>
+<div class="stats"><div><b data-count="2">2</b><span>preprints</span></div><div><b data-count="3">3</b><span>projects</span></div><div><b data-count="11">11</b><span>awards and recognitions</span></div></div>
+<div class="tick" aria-label="Competition results"><div class="tk"><span>1st &middot; National Cloud Hackathon</span><span>1st &middot; NIT Meghalaya</span><span>3rd &middot; IIES 2026</span><span>2nd &middot; Eco Champion, IIT Hyderabad</span><span>4th &middot; Scalar Launchpad</span><span>Rank 5 &middot; Hack Beyond Limits</span><span>Top 50 &middot; Google Prompt War</span><span>Top 100 &middot; CodeSynthesis</span><span>Finalist &middot; COMET&rsquo;26, IIT Roorkee</span><span>Finalist &middot; E-Summit Anantya&rsquo;26, NIT Raipur</span><span>Round 3 &middot; EcoCraft, IIT Kanpur</span><span>1st &middot; National Cloud Hackathon</span><span>1st &middot; NIT Meghalaya</span><span>3rd &middot; IIES 2026</span><span>2nd &middot; Eco Champion, IIT Hyderabad</span><span>4th &middot; Scalar Launchpad</span><span>Rank 5 &middot; Hack Beyond Limits</span><span>Top 50 &middot; Google Prompt War</span><span>Top 100 &middot; CodeSynthesis</span><span>Finalist &middot; COMET&rsquo;26, IIT Roorkee</span><span>Finalist &middot; E-Summit Anantya&rsquo;26, NIT Raipur</span><span>Round 3 &middot; EcoCraft, IIT Kanpur</span></div></div>
+</div></section>
+
+<section class="s r" id="a"><div class="t">
+<div class="tag-bar">
+<span class="tag">Theme: Constrained Stochastic Modelling</span>
+<span class="tag gold">Preprint</span>
+</div>
+<h2>Volatility surfaces that cannot be arbitraged.</h2>
+<p>Standard methods fit an implied volatility surface first and then smooth or project it to remove arbitrage. We put the no-arbitrage constraints into the covariance structure of a Gaussian process, so every interpolated surface already respects them.</p>
+<p class="m"><b>Arbitrage-free Gaussian process interpolation for implied volatility surfaces.</b> Milind Sahu, Darun, Latheesh Roy. August 2026.</p>
+<div class="pub-actions">
+<a href="https://doi.org/10.13140/RG.2.2.33170.62400" target="_blank" rel="noopener">Read the paper [DOI]</a>
+<button class="pub-btn" onclick="toggleBib('bib1')">Cite [BibTeX]</button>
+<a class="go" href="volatility.html">Project page</a>
+</div>
+<div id="bib1" class="bibtex-box">
+<span class="copy-badge" onclick="copyBib('bib1')">Copy</span>@article{sahu2026arbitragefree,
+  title={Arbitrage-free Gaussian process interpolation for implied volatility surfaces},
+  author={Sahu, Milind and Darun, A. and Roy, Latheesh},
+  journal={Preprint / ResearchGate},
+  doi={10.13140/RG.2.2.33170.62400},
+  year={2026}
+}</div>
+</div></section>
+
+<section class="s" id="b"><div class="t">
+<div class="tag-bar">
+<span class="tag">Theme: Inverse Problems & Spectroscopy</span>
+<span class="tag gold">Open Source · MIT</span>
+<span class="tag">In-Browser Demo</span>
+</div>
+<h2>Spectre reads a spectrum backwards.</h2>
+<p>Spectral databases tell you which spectrum matches a molecule. Spectre goes the other way: from a raw infrared spectrum to the functional groups that produced it. A rule engine built on correlation tables works alongside a 1D convolutional network, and every prediction points back to specific peaks.</p>
+<p class="m">Runs fully client-side with WebAssembly/JS. No backend dependency. NMR extension currently in research.</p>
+<div class="pub-actions">
+<a data-repo="spectre" href="https://github.com/itsmilindsahu" target="_blank" rel="noopener">Source Code [GitHub]</a>
+<a href="https://github.com/itsmilindsahu" target="_blank" rel="noopener">Interactive Playground</a>
+<a class="go" href="spectre.html">Project page</a>
+</div>
+</div></section>
+
+<section class="s r" id="d"><div class="t">
+<div class="tag-bar">
+<span class="tag">Theme: Signal Disaggregation & Energy Systems</span>
+<span class="tag gold">Competition Laurels</span>
+</div>
+<h2>Measuring energy and waste.</h2>
+<p>Our NILM system infers appliance-level energy use from one meter. TRACEWASTE treats waste as a chain-of-custody proof, while EcoFusion senses appliance energy optically.</p>
+<div class="awards-list">
+<div class="award-item"><span class="award-badge">1st Prize</span><span>NIT Meghalaya Hackathon — NILM Signal Disaggregation</span></div>
+<div class="award-item"><span class="award-badge">3rd Prize</span><span>Inter-IISER Entrepreneurial Summit (IIES) 2026 — NILM</span></div>
+<div class="award-item"><span class="award-badge">2nd Prize</span><span>Eco Champion Hackathon, IIT Hyderabad — TRACEWASTE Chain of Custody</span></div>
+<div class="award-item"><span class="award-badge">Top 5</span><span>EcoFusion Optical Sensing (among 1,000+ national participants)</span></div>
+</div>
+<p class="m"><b>From opt-in to infrastructure.</b> We argue that energy disaggregation should be public infrastructure. Milind Sahu, Darun A. June 2026.</p>
+<div class="pub-actions">
+<a href="https://doi.org/10.13140/RG.2.2.20940.17283" target="_blank" rel="noopener">Read the paper [DOI]</a>
+<button class="pub-btn" onclick="toggleBib('bib2')">Cite [BibTeX]</button>
+<a class="go" href="energy.html">Project page</a>
+</div>
+<div id="bib2" class="bibtex-box">
+<span class="copy-badge" onclick="copyBib('bib2')">Copy</span>@article{sahu2026optin,
+  title={From opt-in to infrastructure: Public energy disaggregation},
+  author={Sahu, Milind and Darun, A.},
+  journal={Preprint / ResearchGate},
+  doi={10.13140/RG.2.2.20940.17283},
+  year={2026}
+}</div>
+</div></section>
+
+<section class="s" id="team"><div class="t">
+<h2>People.</h2>
+<p>Three students, working across mathematics, chemistry and economics.</p>
+<p class="m"><b>Milind Sahu</b>, founder &nbsp;&middot;&nbsp; <b>Paarth Potnis</b>, chemistry &nbsp;&middot;&nbsp; <b>Darun A.</b>, finance and energy</p>
+<p><a href="people.html">Meet the team</a> &nbsp;&middot;&nbsp; <a href="join.html">Join us</a></p>
+</div></section>
+
+<section class="s r" id="e"><div class="t">
+<h2>Work with us & Join.</h2>
+<p>Axiom Labs is an independent, student-led research collective founded in 2025 by Milind Sahu. We are an open group of peer researchers pursuing rigorous mathematical modeling, quantitative finance, and signal processing from first principles.</p>
+<p><b>For Students & Collaborators:</b> If you are interested in working on Gaussian processes, optimal transport algorithms, or spectroscopy models with us, we'd love to connect and write papers together.</p>
+<p><a href="mailto:milind20251175@students.iisertirupati.ac.in">milind20251175@students.iisertirupati.ac.in</a> <button class="pub-btn" onclick="copyMail(this)">Copy email</button></p>
+<form onsubmit="sendForm(event)">
+<label>Your name<input name="who" required autocomplete="name"></label>
+<label>I want to<select name="interest"><option>Collaborate on research</option><option>Contribute code</option><option>Share domain expertise</option><option>Advise the group</option><option>Something else</option></select></label>
+<label>Message<textarea name="msg" rows="4" required></textarea></label>
+<button class="btn" type="submit">Open in my email app</button>
+</form>
+<p class="m"><a href="https://github.com/itsmilindsahu">GitHub</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/itsmilindsahu">LinkedIn</a> &nbsp;·&nbsp; <a href="https://itsmilindsahu.github.io">Milind's site</a></p>
+</div></section>
+</main>
+<footer><span>&copy; 2026 Axiom Labs. Made by IISER Tirupati students. Independent, and run without any administration.</span><span><a href="https://github.com/itsmilindsahu">GitHub</a> &nbsp;&middot;&nbsp; <a href="https://linkedin.com/in/itsmilindsahu">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="projects.html">Projects</a> &nbsp;&middot;&nbsp; <a href="people.html">People</a> &nbsp;&middot;&nbsp; <a href="join.html">Join</a></span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+function copyMail(b){navigator.clipboard.writeText('milind20251175@students.iisertirupati.ac.in').then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},2000)})}
+function sendForm(e){e.preventDefault();var f=e.target.elements,t=f.interest.value;location.href='mailto:milind20251175@students.iisertirupati.ac.in?subject='+encodeURIComponent('Axiom Labs: '+t)+'&body='+encodeURIComponent('Name: '+f.who.value+'\nAbout: '+t+'\n\n'+f.msg.value)}
+(function(){var mb=document.getElementById('mb'),nv=document.getElementById('nl');mb.addEventListener('click',function(){var o=nv.classList.toggle('show');mb.setAttribute('aria-expanded',o)});
+nv.addEventListener('click',function(e){if(e.target.tagName==='A')nv.classList.remove('show')});
+if('IntersectionObserver' in window){var A=[].slice.call(nv.querySelectorAll('a'));var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting)A.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('main section[id]').forEach(function(q){io.observe(q)})}})();
+function toggleBib(id){var el=document.getElementById(id);if(el)el.classList.toggle('open');}
+function copyBib(id){
+  var el=document.getElementById(id);
+  if(!el)return;
+  var text=el.innerText.replace(/^Copy\s*/,'');
+  navigator.clipboard.writeText(text).then(function(){
+    var b=el.querySelector('.copy-badge');
+    if(b){b.innerText='Copied!';setTimeout(function(){b.innerText='Copy'},2000)}
+  });
+}
+(function(){
+var T=window.THREE,C=document.getElementById('c'),R;
+try{R=new T.WebGLRenderer({canvas:C,antialias:true,alpha:true})}catch(e){}
+var secs=[].slice.call(document.querySelectorAll('.s:not(.x)')),ts=[].slice.call(document.querySelectorAll('.t')),bar=document.querySelector('#p i');
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,L=130,W,H,mx=0,my=0,cz=0,max=1,st=[];
+var BLUE=0x7b93ff,AMB=0xe8b26a,PALE=0xdfe4f2;
+var S,cam,gp,gb,sp,spB,tr,trA,trB,ico,hero,sides=[1,-1,1,-1,1,-1],objs=[];
+if(T&&R){
+S=new T.Scene();S.fog=new T.FogExp2(0x07090f,.022);cam=new T.PerspectiveCamera(60,1,.1,400);
+var dotTex=(function(){var cv=document.createElement('canvas');cv.width=64;cv.height=64;var cx=cv.getContext('2d');var g=cx.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.35,'rgba(255,255,255,.85)');g.addColorStop(1,'rgba(255,255,255,0)');cx.fillStyle=g;cx.fillRect(0,0,64,64);return new T.CanvasTexture(cv)})();
+function pts(a,size,col,op){var g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(a,3));return new T.Points(g,new T.PointsMaterial({size:size,color:col,transparent:true,opacity:op,sizeAttenuation:true,depthWrite:false,map:dotTex,alphaTest:.01}))}
+// dust
+var d=new Float32Array(2600*3);for(var i=0;i<d.length;i+=3){d[i]=(Math.random()-.5)*90;d[i+1]=(Math.random()-.5)*50;d[i+2]=30-Math.random()*(L+70)}
+S.add(pts(d,.14,PALE,.45));
+// hero sphere
+var h=new Float32Array(1400*3);for(i=0;i<1400;i++){var y=1-2*(i+.5)/1400,r=Math.sqrt(1-y*y),a=i*2.39996;h[i*3]=Math.cos(a)*r*7;h[i*3+1]=y*7;h[i*3+2]=Math.sin(a)*r*7}
+hero=pts(h,.17,BLUE,.9);S.add(hero);objs[0]=hero;
+// GP surface
+var pg=new T.PlaneGeometry(26,26,34,34);gb=pg.attributes.position.array.slice();
+gp=new T.Mesh(pg,new T.MeshBasicMaterial({color:BLUE,wireframe:true,transparent:true,opacity:.6}));gp.rotation.x=-1.15;S.add(gp);objs[1]=gp;
+// spectrum
+var N=110,cen=[[-8,2.2,.5],[-4.5,4.6,.3],[-1,3.1,.7],[2.5,5.4,.25],[6,2.6,.6],[9,1.4,.4]];spB=new Float32Array(N);
+for(i=0;i<N;i++){var x=-11+22*i/(N-1),v=.15;cen.forEach(function(c){v+=c[1]*Math.exp(-Math.pow((x-c[0])/c[2],2))});spB[i]=v}
+var sg=new T.BufferGeometry();sg.setAttribute('position',new T.BufferAttribute(new Float32Array(N*6),3));
+sp=new T.LineSegments(sg,new T.LineBasicMaterial({color:AMB,transparent:true,opacity:.9}));sp.rotation.y=.5;S.add(sp);objs[2]=sp;
+// transport
+var n=160,A=new Float32Array(n*3),B=new Float32Array(n*3),ln=new Float32Array(n*6);
+for(i=0;i<n;i++){var an=i/n*6.2832;A[i*3]=-6+Math.cos(an)*3.2;A[i*3+1]=Math.sin(an)*3.2;B[i*3]=6+(i%16-7.5)*.45;B[i*3+1]=(Math.floor(i/16)-4.5)*.5;
+for(var k=0;k<3;k++){ln[i*6+k]=A[i*3+k];ln[i*6+3+k]=B[i*3+k]}}
+trA=A;trB=B;tr=new T.Group();var lg=new T.BufferGeometry();lg.setAttribute('position',new T.BufferAttribute(ln,3));
+tr.add(new T.LineSegments(lg,new T.LineBasicMaterial({color:BLUE,transparent:true,opacity:.16})));
+trP=pts(new Float32Array(n*3),.3,AMB,1);tr.add(trP);tr.scale.setScalar(.8);S.add(tr);objs[3]=tr;var trP;
+// icosahedron
+ico=new T.Group();ico.add(new T.Mesh(new T.IcosahedronGeometry(4.5,1),new T.MeshBasicMaterial({color:BLUE,wireframe:true,transparent:true,opacity:.5})));
+ico.add(new T.Mesh(new T.IcosahedronGeometry(2.2,0),new T.MeshBasicMaterial({color:AMB,wireframe:true,transparent:true,opacity:.8})));S.add(ico);objs[4]=ico;
+// ring/contact object
+var cntObj=new T.Mesh(new T.TorusGeometry(3.6,.4,12,36),new T.MeshBasicMaterial({color:BLUE,wireframe:true,transparent:true,opacity:.4}));S.add(cntObj);objs[5]=cntObj;
+}
+function size(){W=innerWidth;H=innerHeight;if(R){R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(W,H,false);cam.aspect=W/H;cam.updateProjectionMatrix()}
+max=Math.max(1,document.documentElement.scrollHeight-H);st=secs.map(function(s){return -((s.getBoundingClientRect().top+scrollY)/max)*L});
+var X=W>800?7.5:0;if(R)objs.forEach(function(o,i){if(o&&st[i]!==undefined)o.position.set(sides[i]*X,0,st[i]-17)});}
+addEventListener('resize',size);addEventListener('load',size);size();
+addEventListener('pointermove',function(e){mx=e.clientX/W-.5;my=e.clientY/H-.5});
+function tick(ms){
+var t=rm?0:ms*.001,u=Math.min(1,Math.max(0,scrollY/max));cz+=(-u*L-cz)*(rm?1:.07);
+bar.style.transform='scaleY('+u+')';
+if(R){
+cam.position.set(mx*1.6+Math.sin(cz*.05)*1.2,-my*1+Math.cos(cz*.04)*.6,cz);cam.lookAt(cam.position.x*.2,0,cz-10);
+hero.rotation.y=t*.1;hero.rotation.x=t*.04;
+var p=gp.geometry.attributes.position;for(var i=0;i<p.count;i++){var x=gb[i*3],y=gb[i*3+1];p.array[i*3+2]=1.7*Math.sin(x*.35+t)*Math.cos(y*.3-t*.7)+.9*Math.sin((x+y)*.5+t*.5)}p.needsUpdate=true;
+var q=sp.geometry.attributes.position.array,N=spB.length;for(i=0;i<N;i++){var h=spB[i]*(1+.1*Math.sin(t*1.3+i*.35)),xx=-11+22*i/(N-1);q[i*6]=xx;q[i*6+1]=-2.5;q[i*6+3]=xx;q[i*6+4]=-2.5+h}sp.geometry.attributes.position.needsUpdate=true;
+var s=.5+.5*Math.sin(t*.5),m=trP.geometry.attributes.position.array;for(i=0;i<m.length;i++)m[i]=trA[i]+(trB[i]-trA[i])*s;trP.geometry.attributes.position.needsUpdate=true;
+ico.rotation.y=t*.2;ico.rotation.x=t*.12;
+if(cntObj){cntObj.rotation.x=t*.15;cntObj.rotation.y=t*.1;}
+R.render(S,cam);
+}
+ts.forEach(function(el){var r=el.getBoundingClientRect();if(r.height>H*.8){el.style.opacity=1;return}
+var c=(r.top+r.height/2)/H,dd=Math.abs(c-.5),o=Math.min(1,Math.max(0,1-(dd-.22)*3));el.style.opacity=o;el.style.transform='translateY('+((c-.5)*50).toFixed(1)+'px)'});
+requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+})();
+</script>
+<script src="fx.js"></script>
+</body>
+</html>
