@@ -23,7 +23,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:calc(18px + env(safe-area-inset-top,0px)) 28px 18px;font-size:14px}
 nav b{font:800 18px var(--d);letter-spacing:.02em}
 nav b a{display:inline-flex;align-items:center;color:var(--ink);text-decoration:none}
-.brand-mark{display:block;width:clamp(140px,18vw,210px);height:auto;vertical-align:middle}
+.brand-mark{display:block;width:clamp(140px,18vw,210px);height:auto}
 nav div a{color:var(--mute);text-decoration:none;margin-left:22px}
 nav div a:hover{color:var(--ink)}
 #p{position:fixed;right:14px;top:20%;height:60%;width:2px;background:#ffffff1a;z-index:5}
@@ -115,7 +115,7 @@ nav div a.on{color:var(--amber)}
 <body>
 <canvas id="c" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Skip to content</a>
-<nav><b><a href="#top" aria-label="Axiom Labs"><svg class="brand-mark" viewBox="0 0 280 42" role="img" aria-label="Axiom Labs"><text x="0" y="31" fill="#fff" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="0.08em">Axiom Labs</text></svg></a></b><button class="mb" id="mb" aria-expanded="false" aria-controls="nl">Menu</button><div id="nl"><a href="#about">About</a><a href="projects.html">Projects</a><a href="people.html">People</a><a href="join.html">Join</a><a href="#e">Contact</a></div></nav>
+<nav><b><a href="#top" aria-label="Axiom Labs"><img class="brand-mark" src="assets/axiom-labs-logo.png" alt="" width="332" height="47"></a></b><button class="mb" id="mb" aria-expanded="false" aria-controls="nl">Menu</button><div id="nl"><a href="#about">About</a><a href="projects.html">Projects</a><a href="people.html">People</a><a href="join.html">Join</a><a href="#e">Contact</a></div></nav>
 <div id="p"><i></i></div>
 <main id="main">
 <section class="s" id="top"><div class="t">

@@ -7,7 +7,7 @@ a{color:var(--amber);text-underline-offset:4px}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 nav{display:flex;flex-wrap:wrap;gap:8px 0;justify-content:space-between;align-items:center;padding:20px 28px;font-size:14px;max-width:1040px;margin:0 auto}
 nav b a{display:inline-flex;align-items:center;color:var(--ink);text-decoration:none}
-.brand-mark{display:block;width:clamp(140px,18vw,210px);height:auto;vertical-align:middle}
+.brand-mark{display:block;width:clamp(140px,18vw,210px);height:auto}
 nav div a{color:var(--mute);text-decoration:none;margin-left:22px}
 nav div a:hover,nav div a[aria-current]{color:var(--ink)}
 main{max-width:760px;margin:0 auto;padding:56px 28px 80px}
