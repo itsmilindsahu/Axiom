@@ -228,9 +228,6 @@ footer a{color:var(--mute)}
 <script>
 function copyMail(b){navigator.clipboard.writeText('milind20251175@students.iisertirupati.ac.in').then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},2000)})}
 function sendForm(e){e.preventDefault();var f=e.target.elements,t=f.interest.value;location.href='mailto:milind20251175@students.iisertirupati.ac.in?subject='+encodeURIComponent('Axiom Labs: '+t)+'&body='+encodeURIComponent('Name: '+f.who.value+'\nAbout: '+t+'\n\n'+f.msg.value)}
-(function(){var mb=document.getElementById('mb'),nv=document.getElementById('nl');mb.addEventListener('click',function(){var o=nv.classList.toggle('show');mb.setAttribute('aria-expanded',o)});
-nv.addEventListener('click',function(e){if(e.target.tagName==='A')nv.classList.remove('show')});
-if('IntersectionObserver' in window){var A=[].slice.call(nv.querySelectorAll('a'));var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting)A.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('main section[id]').forEach(function(q){io.observe(q)})}})();
 function toggleBib(id){var el=document.getElementById(id);if(el)el.classList.toggle('open');}
 function copyBib(id){
   var el=document.getElementById(id);
