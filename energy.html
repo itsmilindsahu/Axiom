@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="style.css"></head><body>
 <nav><b><a href="index.html" aria-label="Axiom Labs"><img class="brand-mark" src="assets/axiom-labs-logo.png" alt="" width="332" height="47"></a></b><div><a href="projects.html" aria-current="page">Projects</a><a href="people.html">People</a><a href="join.html">Join</a><a href="join.html#contact">Contact</a></div></nav>
 <header class="hero"><canvas data-fx="nilm" aria-hidden="true"></canvas><div class="hin"><h1>Measuring energy and waste.</h1>
-<p class="lead">Three systems that infer what happened from limited signals, and a preprint arguing that energy disaggregation should be public infrastructure.</p><p class="cap">Illustration: one meter reading is the sum of every appliance.</p></div></header>
+<p class="lead">Three systems that infer what happened from limited signals, alongside NSRI Student Research Journal research on energy disaggregation as public infrastructure.</p><p class="cap">Illustration: one meter reading is the sum of every appliance.</p></div></header>
 <main>
 <h2>NILM</h2><img class="pic" src="https://itsmilindsahu.github.io/nilm.jpg" alt="NILM smart monitoring prototype" loading="lazy" onerror="this.remove()">
 <p>Appliance-level energy use inferred from a single meter. We treat it as supervised time-series classification, with random forests for anomaly detection and an LSTM for multi-step load prediction. The pipeline runs from ESP32 hardware through a FastAPI backend to a web dashboard.</p>
@@ -18,12 +18,14 @@
 <p>Optical sensing of appliance energy use, with cost forecasting and anomaly detection. Built end to end by one person.</p>
 <p class="m">Rank 5, Hack Beyond Limits 2025, among 1,000+ participants</p>
 <h2>The paper</h2>
-<p><b>From opt-in to infrastructure.</b> Proposes the Civic Energy Disaggregation Mandate: NILM as public utility infrastructure rather than an opt-in consumer product, supported by a five-model benchmark. Milind Sahu and Darun A., June 2026. <a href="https://doi.org/10.13140/RG.2.2.20940.17283" target="_blank" rel="noopener">Read it</a>.</p>
+<p><b>From opt-in to infrastructure: Non-intrusive load monitoring, sustained household energy conservation, and the Civic Energy Disaggregation Mandate.</b> Proposes the Civic Energy Disaggregation Mandate: NILM as public utility infrastructure rather than an opt-in consumer product, supported by a five-model benchmark. Milind Sahu and Darun A. Accepted in the NSRI Student Research Journal, June 2026. <a href="https://nsri.world/article/website-archive-c754d954-9ea4-46fe-a7b8-4507693d754c/download" target="_blank" rel="noopener">Read the NSRI Student Research Journal article</a> · <a href="https://doi.org/10.13140/RG.2.2.20940.17283" target="_blank" rel="noopener">DOI</a>.</p>
 <pre class="bib" id="b2">@article{sahu2026optin,
-  title={From opt-in to infrastructure: Public energy disaggregation},
+  title={From opt-in to infrastructure: Non-intrusive load monitoring, sustained household energy conservation, and the Civic Energy Disaggregation Mandate},
   author={Sahu, Milind and Darun, A.},
-  journal={Preprint / ResearchGate},
+  journal={NSRI Student Research Journal},
+  note={Accepted June 2026},
   doi={10.13140/RG.2.2.20940.17283},
+  url={https://nsri.world/article/website-archive-c754d954-9ea4-46fe-a7b8-4507693d754c/download},
   year={2026}
 }</pre><button class="btn ghost" onclick="copyBib('b2',this)">Copy BibTeX</button>
 <h2>Open problems</h2>
