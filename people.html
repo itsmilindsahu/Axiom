@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="style.css?v=people-portraits-2"></head><body>
 <nav><b><a href="index.html" aria-label="Axiom Labs"><img class="brand-mark" src="assets/axiom-labs-logo.png" alt="" width="332" height="47"></a></b><div><a href="projects.html">Projects</a><a href="people.html" aria-current="page">People</a><a href="join.html">Join</a><a href="join.html#contact">Contact</a></div></nav>
 <header class="hero"><canvas data-fx="net" aria-hidden="true"></canvas><div class="hin"><h1>People.</h1>
-<p class="lead">Three students, working with collaborators at IIT Palakkad and the University of Amsterdam.</p></div></header>
+<p class="lead">Two founders, two research fellows joining for Spectre, and collaborators across IIT Palakkad and the University of Amsterdam.</p></div></header>
 <main>
 <div class="row profile-row"><div class="profile-portrait"><img src="assets/milind-portrait.png" alt="Milind Sahu at a rocket exhibit" loading="eager"></div><div>
 <h3>Milind Sahu</h3><p class="role">Founder</p>
@@ -15,11 +15,272 @@
 <div class="row profile-row compact-row"><div class="profile-portrait"><img src="assets/paarth-portrait-dark.png" alt="Portrait of Paarth Potnis on a dark background" loading="lazy"></div><div>
 <h3>Paarth Potnis</h3><p class="role">Chemistry lead, Spectre</p>
 <p>Designs the SMARTS patterns that auto-label spectra, curates the infrared correlation table behind the rule engine, and checks model output against real functional-group assignments. Interested in organic synthesis, catalysis and enzyme-catalysed green chemistry.</p></div></div>
+<h2>Research Fellows</h2>
+<p style="color:var(--mute);font-size:13px;margin:0 0 24px">Joining the team for the Spectre project.</p>
+<div class="row profile-row compact-row"><div class="profile-portrait" style="background:rgba(232,178,106,0.06);border:1px solid rgba(232,178,106,0.15);border-radius:4px;display:flex;align-items:center;justify-content:center;"><span style="font:600 28px var(--d);color:var(--amber);letter-spacing:-.02em">VM</span></div><div>
+<h3>Vidharrthini Madhan</h3><p class="role">Research Fellow · Spectre</p>
+<p>Upcoming intern at NIT Calicut. Research interest in computational chemistry, contributing to Spectre's chemistry pipeline for spectral interpretation and functional-group prediction.</p></div></div>
+<div class="row profile-row compact-row"><div class="profile-portrait" style="background:rgba(123,147,255,0.06);border:1px solid rgba(123,147,255,0.15);border-radius:4px;display:flex;align-items:center;justify-content:center;"><span style="font:600 28px var(--d);color:var(--blue);letter-spacing:-.02em">NC</span></div><div>
+<h3>Nuntluanga Chhangte</h3><p class="role">Research Fellow · Spectre</p>
+<p>2nd year BS-MS student at IISER Tirupati. Working on computational chemistry and contributing to the Spectre project's scientific foundation.</p></div></div>
 <h2>Collaborators</h2>
 <div class="row profile-row compact-row"><div class="profile-portrait"><img src="assets/darun-portrait.png" alt="Portrait of Darun A." loading="lazy"></div><div>
 <h3>Darun A.</h3><p class="role">Collaborator</p>
 <p>Research assistant at the Madras School of Economics. Co-author on the Pan-IIM Conference-selected volatility paper and the NSRI Student Research Journal article on energy disaggregation. Builds market-risk and portfolio tools, and an NLP tracker that links news headlines to stock tickers.</p></div></div>
 <div class="row"><div><h3>Latheesh Roy</h3><p class="role">Co-author</p></div><div><p>Co-author on the arbitrage-free volatility paper.</p></div></div>
-<h2>Moments</h2><div class="gal"><figure><img src="https://itsmilindsahu.github.io/photo1.jpg" alt="2nd Prize, Eco Champion Hackathon, IIT Hyderabad" loading="lazy" onerror="this.parentNode.remove()"><figcaption>2nd Prize, Eco Champion Hackathon, IIT Hyderabad</figcaption></figure><figure><img src="https://itsmilindsahu.github.io/photo5.jpg" alt="3rd Prize, Inter-IISER Entrepreneurial Summit" loading="lazy" onerror="this.parentNode.remove()"><figcaption>3rd Prize, Inter-IISER Entrepreneurial Summit</figcaption></figure><figure><img src="https://itsmilindsahu.github.io/photo2.jpg" alt="Presenting at IIES 2026" loading="lazy" onerror="this.parentNode.remove()"><figcaption>Presenting at IIES 2026</figcaption></figure><figure><img src="https://itsmilindsahu.github.io/photo4.jpg" alt="Pitching to judges at IIES 2026" loading="lazy" onerror="this.parentNode.remove()"><figcaption>Pitching to judges at IIES 2026</figcaption></figure></div><p style="margin-top:40px">Want to be on this page? <a href="join.html">See how to join.</a></p></main>
+<h2>History &amp; Recognition</h2>
+<p style="color:var(--mute);font-size:13px;margin:0 0 32px">A record of milestones, awards, and publications since Axiom Labs was founded.</p>
+<style>
+/* ── Timeline rail ── */
+.axl-tl{
+  list-style:none;margin:0 0 56px;
+  padding:0 0 0 22px;
+  border-left:2px solid transparent;
+  background-image:linear-gradient(var(--bg),var(--bg)),
+    linear-gradient(180deg,rgba(232,178,106,0.5) 0%,rgba(123,147,255,0.3) 60%,rgba(123,147,255,0.05) 100%);
+  background-origin:border-box;
+  background-clip:padding-box,border-box;
+}
+/* ── Timeline cards ── */
+.axl-tl li{
+  position:relative;margin:0 0 12px;padding:16px 18px;
+  border-radius:8px;border:1px solid rgba(255,255,255,0.05);
+  background:rgba(255,255,255,0.015);
+  transition:background .25s,border-color .25s,transform .25s;
+  cursor:default;
+}
+.axl-tl li:hover{
+  background:rgba(232,178,106,0.04);
+  border-color:rgba(232,178,106,0.18);
+  transform:translateX(4px);
+}
+.axl-tl li.blue-dot:hover{
+  background:rgba(123,147,255,0.05);
+  border-color:rgba(123,147,255,0.2);
+}
+/* ── Dot on rail ── */
+.axl-tl li:before{
+  content:"";
+  position:absolute;left:-30px;top:20px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--amber);
+  border:2px solid #07090f;
+  box-shadow:0 0 0 3px rgba(232,178,106,0.2),0 0 10px rgba(232,178,106,0.35);
+  transition:box-shadow .25s;
+}
+.axl-tl li:hover:before{
+  box-shadow:0 0 0 4px rgba(232,178,106,0.25),0 0 16px rgba(232,178,106,0.5);
+}
+.axl-tl li.blue-dot:before{
+  background:var(--blue);
+  box-shadow:0 0 0 3px rgba(123,147,255,0.2),0 0 10px rgba(123,147,255,0.35);
+}
+.axl-tl li.blue-dot:hover:before{
+  box-shadow:0 0 0 4px rgba(123,147,255,0.25),0 0 16px rgba(123,147,255,0.5);
+}
+/* ── Entry details ── */
+.axl-tl-date{
+  font-size:10px;color:var(--mute);
+  text-transform:uppercase;letter-spacing:0.1em;
+  margin-bottom:5px;
+}
+.axl-tl-title{
+  font:600 15px/1.3 var(--d);color:var(--ink);
+  margin-bottom:6px;letter-spacing:-0.01em;
+}
+.axl-tl-desc{
+  font-size:13px;color:#8e96a8;
+  line-height:1.65;margin:0;
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease,opacity .3s ease;
+  opacity:0;
+}
+.axl-tl li:hover .axl-tl-desc{
+  max-height:200px;opacity:1;
+}
+/* ── Badges ── */
+.axl-badge-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:5px}
+.axl-b{
+  font-size:9px;text-transform:uppercase;letter-spacing:0.07em;
+  padding:2px 7px;border-radius:3px;font-weight:600;white-space:nowrap;
+}
+.axl-b.gold{
+  background:rgba(232,178,106,0.1);color:var(--amber);
+  border:1px solid rgba(232,178,106,0.3);
+}
+.axl-b.blue{
+  background:rgba(123,147,255,0.08);color:var(--blue);
+  border:1px solid rgba(123,147,255,0.25);
+}
+.axl-b.grey{
+  background:rgba(255,255,255,0.04);color:#6b7485;
+  border:1px solid rgba(255,255,255,0.08);
+}
+/* ── Year divider ── */
+.axl-tl-year{
+  position:relative;
+  display:flex;align-items:center;gap:14px;
+  margin:48px 0 20px;
+  font:800 clamp(20px,3.5vw,28px)/1 var(--d);
+  letter-spacing:-0.03em;
+  color:transparent;
+  background:linear-gradient(90deg,var(--amber),var(--blue));
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+.axl-tl-year:first-child{margin-top:4px}
+.axl-tl-year::after{
+  content:"";
+  flex:1;height:1px;
+  background:linear-gradient(90deg,rgba(232,178,106,0.25),transparent);
+}
+/* ── Scroll-in animation ── */
+@media (prefers-reduced-motion:no-preference){
+  .axl-tl li{opacity:0;transform:translateX(-10px)}
+  .axl-tl li.axl-vis{opacity:1;transform:translateX(0);transition:opacity .5s ease,transform .5s ease,background .25s,border-color .25s}
+  .axl-tl li.axl-vis:hover{transform:translateX(4px)}
+}
+</style>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.axl-tl li').forEach(function(el){el.classList.add('axl-vis')});
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var li=e.target,siblings=[].slice.call(li.parentNode.children);
+        var idx=siblings.indexOf(li);
+        setTimeout(function(){li.classList.add('axl-vis')},idx*60);
+        io.unobserve(li);
+      }
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.axl-tl li').forEach(function(el){io.observe(el)});
+})();
+</script>
+
+<div class="axl-tl-year">2025 — The Beginning</div>
+<ul class="axl-tl">
+  <li>
+    <div class="axl-tl-date">2025</div>
+    <div class="axl-badge-row"><span class="axl-b gold">Founded</span></div>
+    <div class="axl-tl-title">Axiom Labs established</div>
+    <p class="axl-tl-desc">Founded by Milind Sahu as an independent, student-run research group. Mission: start from axioms, not assumptions. Work on mathematical models of uncertainty and structure, and the software that makes them usable.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2025</div>
+    <div class="axl-badge-row"><span class="axl-b gold">Top 100</span><span class="axl-b grey">4,000+ Teams</span></div>
+    <div class="axl-tl-title">CodeSynthesis National</div>
+    <p class="axl-tl-desc">Top 100 finish at CodeSynthesis, a national competition with over 4,000 teams.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2025</div>
+    <div class="axl-badge-row"><span class="axl-b gold">Rank 5</span><span class="axl-b grey">1,000+ Participants</span></div>
+    <div class="axl-tl-title">Hack Beyond Limits</div>
+    <p class="axl-tl-desc">Ranked 5th out of over 1,000 participants at Hack Beyond Limits with EcoFusion — an optical sensor system for appliance-level energy monitoring.</p>
+  </li>
+</ul>
+
+<div class="axl-tl-year">2026 — Awards, Research &amp; Publications</div>
+<ul class="axl-tl">
+  <li class="blue-dot">
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b blue">Research Fellowship</span></div>
+    <div class="axl-tl-title">Research Fellowship, IIT Palakkad</div>
+    <p class="axl-tl-desc">Research fellow at IIT Palakkad working on Gaussian process regression for distribution-valued inputs — the mathematical core of the volatility surface paper.</p>
+  </li>
+  <li class="blue-dot">
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b blue">Research Collaboration</span></div>
+    <div class="axl-tl-title">Collaboration, University of Amsterdam</div>
+    <p class="axl-tl-desc">Collaborator on renewable energy capture-price forecasting, feeding directly into the energy systems research track.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b gold">1st Prize</span><span class="axl-b grey">1,500+ Devs</span></div>
+    <div class="axl-tl-title">National Cloud Hackathon — Idea Phase</div>
+    <p class="axl-tl-desc">First place among over 1,500 participants in the idea phase of a national cloud computing hackathon.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b gold">1st Prize</span></div>
+    <div class="axl-tl-title">NIT Meghalaya National Hackathon</div>
+    <p class="axl-tl-desc">First place at the NIT Meghalaya national hackathon with the NILM signal disaggregation project — inferring appliance-level energy use from a single meter.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b gold">1st Prize</span></div>
+    <div class="axl-tl-title">INCI — Inter-IISER / IISc / NISER / CEBS Challenge</div>
+    <p class="axl-tl-desc">First place at the INCI inter-institutional challenge, competing against teams from IISER, IISc, NISER and CEBS campuses.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b gold">2nd Prize</span></div>
+    <div class="axl-tl-title">Eco Champion Hackathon, IIT Hyderabad</div>
+    <p class="axl-tl-desc">Second place at IIT Hyderabad's Eco Champion Hackathon with TRACEWASTE — a chain-of-custody proof system that treats waste as a verifiable data trail.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b gold">Top 50</span><span class="axl-b grey">900+ Participants</span></div>
+    <div class="axl-tl-title">Google Prompt War</div>
+    <p class="axl-tl-desc">Ranked in the Top 50 out of 900+ participants in Google's Prompt War competition.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b gold">4th Place</span><span class="axl-b grey">500+ Teams</span></div>
+    <div class="axl-tl-title">Scalar School of Technology Launchpad</div>
+    <p class="axl-tl-desc">Fourth place at Scalar's Launchpad competition among over 500 teams.</p>
+  </li>
+  <li class="blue-dot">
+    <div class="axl-tl-date">Early 2026</div>
+    <div class="axl-badge-row"><span class="axl-b blue">Preprint</span><span class="axl-b gold">Selected · Pan-IIM Conference</span></div>
+    <div class="axl-tl-title">Arbitrage-Free Gaussian Process Interpolation for Implied Volatility Surfaces</div>
+    <p class="axl-tl-desc">First research paper published. Embeds no-arbitrage constraints directly into the GP covariance structure so every interpolated surface already respects them. Selected for presentation at the Pan-IIM Conference. Co-authored with Darun A. and Latheesh Roy.</p>
+  </li>
+  <li class="blue-dot">
+    <div class="axl-tl-date">June 2026</div>
+    <div class="axl-badge-row"><span class="axl-b blue">Journal Article</span><span class="axl-b gold">Accepted · NSRI Student Research Journal</span></div>
+    <div class="axl-tl-title">From opt-in to infrastructure: NILM, energy conservation and the Civic Energy Disaggregation Mandate</div>
+    <p class="axl-tl-desc">Second paper accepted in the NSRI Student Research Journal. Proposes a policy framework — the Civic Energy Disaggregation Mandate — grounded in the NILM signal disaggregation work. Co-authored with Darun A.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b gold">3rd Prize</span></div>
+    <div class="axl-tl-title">Inter-IISER Entrepreneurial Summit (IIES) 2026</div>
+    <p class="axl-tl-desc">Third place at IIES 2026 with the NILM energy disaggregation project, competing against entrepreneurial teams from IISER campuses across India.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b grey">Finalist</span></div>
+    <div class="axl-tl-title">Fish Tank — COMET'26 with TIDES, IIT Roorkee</div>
+    <p class="axl-tl-desc">Finalist at COMET'26's Fish Tank event in collaboration with TIDES at IIT Roorkee.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b grey">Finalist</span></div>
+    <div class="axl-tl-title">E-Summit Anantya'26, NIT Raipur</div>
+    <p class="axl-tl-desc">Finalist at E-Summit Anantya'26 hosted by NIT Raipur.</p>
+  </li>
+  <li>
+    <div class="axl-tl-date">2026</div>
+    <div class="axl-badge-row"><span class="axl-b grey">Round 3</span></div>
+    <div class="axl-tl-title">IIT Kanpur EcoCraft Policy Conclave 2026</div>
+    <p class="axl-tl-desc">Advanced to Round 3 of IIT Kanpur's EcoCraft Policy Conclave with the energy systems and policy work.</p>
+  </li>
+  <li class="blue-dot">
+    <div class="axl-tl-date">2026 — Ongoing</div>
+    <div class="axl-badge-row"><span class="axl-b blue">Active Project</span></div>
+    <div class="axl-tl-title">Spectre — IR spectral interpretation engine</div>
+    <p class="axl-tl-desc">Open-source tool that reads a raw infrared spectrum and identifies functional groups. Rule engine built on SMARTS correlation tables works alongside a 1D CNN. Runs fully client-side with WebAssembly. NMR extension in research. Vidharrthini Madhan and Nuntluanga Chhangte join as Research Fellows.</p>
+  </li>
+</ul>
+
+<h2>Moments</h2>
+<div style="margin:0 0 36px;display:flex;justify-content:flex-start">
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7517263910199054336" height="521" width="504" frameborder="0" allowfullscreen="" title="Embedded post" style="border-radius:8px;border:1px solid rgba(255,255,255,0.1);max-width:100%"></iframe>
+</div>
+<div class="gal"><figure><img src="https://itsmilindsahu.github.io/photo1.jpg" alt="2nd Prize, Eco Champion Hackathon, IIT Hyderabad" loading="lazy" onerror="this.parentNode.remove()"><figcaption>2nd Prize, Eco Champion Hackathon, IIT Hyderabad</figcaption></figure><figure><img src="https://itsmilindsahu.github.io/photo5.jpg" alt="3rd Prize, Inter-IISER Entrepreneurial Summit" loading="lazy" onerror="this.parentNode.remove()"><figcaption>3rd Prize, Inter-IISER Entrepreneurial Summit</figcaption></figure><figure><img src="https://itsmilindsahu.github.io/photo2.jpg" alt="Presenting at IIES 2026" loading="lazy" onerror="this.parentNode.remove()"><figcaption>Presenting at IIES 2026</figcaption></figure><figure><img src="https://itsmilindsahu.github.io/photo4.jpg" alt="Pitching to judges at IIES 2026" loading="lazy" onerror="this.parentNode.remove()"><figcaption>Pitching to judges at IIES 2026</figcaption></figure></div><p style="margin-top:40px">Want to be on this page? <a href="join.html">See how to join.</a></p></main>
 <footer><span>&copy; 2026 Axiom Labs. Made by IISER Tirupati students. Independent, and run without any administration.</span><span><a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="https://github.com/itsmilindsahu">GitHub</a> &nbsp;&middot;&nbsp; <a href="https://linkedin.com/in/itsmilindsahu">LinkedIn</a></span></footer>
 <script src="site.js"></script><script src="fx.js"></script></body></html>
