@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spectre Winter Programme | Axiom Labs</title><meta name="description" content="A six-week, unpaid, remote project programme on the open-source Spectre spectroscopy tool, with a final project and demo day."><meta name="theme-color" content="#07090f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2307090f'/%3E%3Cpath d='M16 6l9 20h-4l-1.6-4h-6.8L11 26H7z' fill='%23e8b26a'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="style.css"></head><body>
+<nav><b><a href="index.html" aria-label="Axiom Labs"><img class="brand-mark" src="assets/axiom-labs-logo.png" alt="" width="332" height="47"></a></b><div><a href="projects.html">Projects</a><a href="people.html">People</a><a href="join.html">Join</a><a href="winter.html" aria-current="page">Winter</a><a href="join.html#contact">Contact</a></div></nav>
+<header class="hero"><canvas data-fx="spectrum" aria-hidden="true"></canvas><div class="hin"><h1>Spectre Winter Programme.</h1>
+<p class="lead">Six weeks over winter break. Pick one piece of Spectre, build it, and finish with a project you can show. Remote, unpaid, and run by students.</p></div></header>
+<main>
+<dl class="facts"><dt>Length</dt><dd>6 weeks, over winter break. Exact dates go to selected applicants.</dd><dt>Format</dt><dd>Remote. Work on your own time, one group call a week.</dd><dt>Time</dt><dd>About 8 to 10 hours a week</dd><dt>Cost</dt><dd>Free. There is no stipend.</dd><dt>Led by</dt><dd>Milind Sahu (computational lead) and Paarth Potnis (chemistry lead)</dd><dt>Code</dt><dd><a href="https://github.com/itsmilindsahu" target="_blank" rel="noopener">GitHub</a>, MIT licence</dd></dl>
+
+<h2>What this is, and is not</h2>
+<p>This is a structured project programme on an open-source tool. It is not an internship and not a fellowship. Axiom Labs is an independent group of undergraduates with no institutional backing, so we cannot offer a stipend, an institutional certificate or a recommendation letter. At least for now, we will not pretend otherwise.</p>
+<p>What you get is real work on a real codebase, direct feedback from the people who wrote it, and a finished project with your name on it.</p>
+
+<h2>Pick a track</h2>
+<div class="item"><h3>NMR module</h3><p>Extend Spectre from infrared to NMR: peak picking and rules that map shifts to structural groups.</p><p class="m">Spectroscopy, Python</p></div>
+<div class="item"><h3>Data and validation</h3><p>Build labelled spectra, extend the synthetic data generator, and test the pipeline against real lab spectra.</p><p class="m">Data, chemistry or physics background helps</p></div>
+<div class="item"><h3>Model and evaluation</h3><p>Improve the 1D convolutional network, add more functional-group classes, and run honest error analysis.</p><p class="m">Machine learning, PyTorch or similar</p></div>
+<div class="item"><h3>Chemistry rules</h3><p>Curate correlation-table entries and SMARTS patterns, and check model output against real assignments.</p><p class="m">Organic chemistry, led with Paarth</p></div>
+<div class="item"><h3>Playground and docs</h3><p>Improve the in-browser demo and write the documentation and tutorials that make Spectre easy to try.</p><p class="m">JavaScript, WebAssembly, writing</p></div>
+
+<h2>The six weeks</h2>
+<ol class="tl">
+<li><time>Week 1</time><b>Set up and plan.</b> Run Spectre end to end, choose a track, and write a one-page project plan with us.</li>
+<li><time>Week 2</time><b>First contribution.</b> Get one small change merged through a pull request: a test, a fix or a dataset entry.</li>
+<li><time>Weeks 3 and 4</time><b>Build.</b> Do the main work of your project. We review progress at the end of week 4 and rescope if needed.</li>
+<li><time>Week 5</time><b>Evaluate and document.</b> Test it, measure it, and write down what worked and what did not.</li>
+<li><time>Week 6</time><b>Final project and demo day.</b> Submit the project and present it live to the group.</li>
+</ol>
+
+<h2>The final project</h2>
+<p>Every participant ends with three things: code or data merged into the repository (or a tagged branch, if it is not ready to merge), a short write-up of two to four pages covering the method, the results and the failures, and a ten-minute demo-day presentation.</p>
+
+<h2>What you can earn</h2>
+<div class="item"><h3>Certificate of completion</h3><p>Issued by Axiom Labs, only to participants who meet all three milestones: first pull request merged by the end of week 2, final project submitted, and demo given. It states that Axiom Labs is an independent, student-run group and carries no university logo.</p></div>
+<div class="item"><h3>Contribution statement</h3><p>A one-page letter listing exactly what you built, such as the module, the dataset or the merged pull requests. Available to anyone with merged work, even without the certificate.</p></div>
+<div class="item"><h3>Public credit</h3><p>Your name in the GitHub contributors list and in the release notes.</p></div>
+<div class="item"><h3>Authorship or acknowledgement</h3><p>Only for real contribution. We write the criteria down in week 1 and agree them with you. Nothing is promised in advance.</p></div>
+<div class="item"><h3>Demo day</h3><p>You present your project to the group and to guests we invite.</p></div>
+
+<h2>Who should apply</h2>
+<p>You should be comfortable writing Python and reading someone else's code. You do not need spectroscopy experience for the data, model or playground tracks. We accept students from any college. We choose based on what you have made and how much time you can commit, not on where you study.</p>
+
+<h2>How to apply</h2>
+<ol><li>Tell us which track you want and why, in a few lines.</li><li>Link to something you have built: a repository, a notebook, a report.</li><li>Tell us how many hours a week you can give.</li></ol>
+<p>We reply with a short call and a small starter task. Selection is based on the task. We take a small cohort so everyone gets feedback.</p>
+<form onsubmit="sendForm(event)">
+<label>Your name<input name="who" required autocomplete="name"></label>
+<label>Track<select name="interest"><option>Winter Programme: NMR module</option><option>Winter Programme: Data and validation</option><option>Winter Programme: Model and evaluation</option><option>Winter Programme: Chemistry rules</option><option>Winter Programme: Playground and docs</option></select></label>
+<label>Link to your work, and hours per week<textarea name="msg" rows="4" required></textarea></label>
+<button class="btn" type="submit">Open in my email app</button>
+</form>
+
+<h2>Questions</h2>
+<details><summary>Is this an internship?</summary><p>No. It is a project programme run by Axiom Labs, an independent student group. Please do not describe it as an internship at IISER Tirupati or any other institution.</p></details>
+<details><summary>Can I put it on my CV?</summary><p>Yes, described accurately: "Spectre Winter Programme, Axiom Labs (independent student research group), 6 weeks", plus what you built.</p></details>
+<details><summary>Is there a stipend or a recommendation letter?</summary><p>No stipend. We are not offering recommendation letters for now. The contribution statement is the record of what you did.</p></details>
+<details><summary>What if I miss a milestone?</summary><p>Talk to us early. If you still cannot complete the project, you keep your public GitHub credit and a contribution statement for anything merged, but not the completion certificate.</p></details>
+<details><summary>Who owns the work?</summary><p>Spectre is MIT licensed. What you contribute is released under the same licence, and your name stays in the history.</p></details>
+</main>
+<footer><span>&copy; 2026 Axiom Labs. Made by IISER Tirupati students. Independent, and run without any administration.</span><span><a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="https://github.com/itsmilindsahu">GitHub</a> &nbsp;&middot;&nbsp; <a href="https://linkedin.com/in/itsmilindsahu">LinkedIn</a></span></footer>
+<script src="site.js"></script><script src="fx.js"></script></body></html>
