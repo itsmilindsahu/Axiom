@@ -14,16 +14,21 @@
 <p>This is a structured project programme on an open-source tool. It is not an internship and not a fellowship. Axiom Labs is an independent group of undergraduates with no institutional backing, so we cannot offer a stipend, an institutional certificate or a recommendation letter. At least for now, we will not pretend otherwise.</p>
 <p>What you get is real work on a real codebase, direct feedback from the people who wrote it, and a finished project with your name on it.</p>
 
-<h2>Spectre today</h2>
-<p>Spectre is an open-source IR interpretation pipeline: it ingests spectra, preprocesses the signal, extracts peaks, and predicts candidate functional groups using a correlation-table rule engine and a 1D CNN. The browser playground runs client-side. These clips show the current IR work and the planned NMR direction; they are project demonstrations, not accuracy benchmarks. NMR is a research track, not an implemented feature.</p>
+<h2>Spectre, right now</h2>
+<p>Spectre reads IR spectra with a rule engine and a 1D CNN. The first three clips show the current project; the last is a sketch of a possible NMR extension, which is not built yet.</p>
 <div class="gal spectre-demos">
-<figure><a href="https://github.com/itsmilindsahu/Axiom/blob/main/Designs_Linkedin/spectre_gif2_same_region.gif" target="_blank" rel="noopener"><img src="assets/spectre_gif2_same_region.gif" alt="Spectre IR visualization focused on the same spectral region" loading="lazy"></a><figcaption>IR peak regions: investigate overlapping signals and the evidence behind candidate assignments. <a href="https://github.com/itsmilindsahu/Axiom/blob/main/Designs_Linkedin/spectre_gif2_same_region.gif" target="_blank" rel="noopener">Open GIF</a></figcaption></figure>
-<figure><a href="https://github.com/itsmilindsahu/Axiom/blob/main/Designs_Linkedin/spectre_gif3_two_readers.gif" target="_blank" rel="noopener"><img src="assets/spectre_gif3_two_readers.gif" alt="Spectre visualizing an infrared spectrum in its browser interface" loading="lazy"></a><figcaption>Two readers: explore how rule-based and learned approaches can interpret spectral data. <a href="https://github.com/itsmilindsahu/Axiom/blob/main/Designs_Linkedin/spectre_gif3_two_readers.gif" target="_blank" rel="noopener">Open GIF</a></figcaption></figure>
-<figure><a href="https://github.com/itsmilindsahu/Axiom/blob/main/Designs_Linkedin/spectre_gif4_nothing_leaves.gif" target="_blank" rel="noopener"><img src="assets/spectre_gif4_nothing_leaves.gif" alt="Spectre browser demo running without a backend" loading="lazy"></a><figcaption>Runs in the browser: explore the client-side playground and improve its usability. <a href="https://github.com/itsmilindsahu/Axiom/blob/main/Designs_Linkedin/spectre_gif4_nothing_leaves.gif" target="_blank" rel="noopener">Open GIF</a></figcaption></figure>
-<figure><a href="https://github.com/itsmilindsahu/Axiom/blob/main/Designs_Linkedin/spectre_gif5_nmr_next.gif" target="_blank" rel="noopener"><img src="assets/spectre_gif5_nmr_next.gif" alt="Illustration of the planned NMR extension, with a chemical shift axis in ppm" loading="lazy"></a><figcaption>NMR next: a planned extension where contributors can build and validate new capabilities. <a href="https://github.com/itsmilindsahu/Axiom/blob/main/Designs_Linkedin/spectre_gif5_nmr_next.gif" target="_blank" rel="noopener">Open GIF</a></figcaption></figure>
+<figure><img src="assets/spectre_gif2_same_region.gif" alt="One IR peak with two possible assignments: O-H and N-H" loading="eager"><figcaption>One peak. Two possible answers.</figcaption></figure>
+<figure><img src="assets/spectre_gif3_two_readers.gif" alt="IR spectrum interpreted by a rule engine and a 1D CNN" loading="eager"><figcaption>Rule engine + 1D CNN.</figcaption></figure>
+<figure><img src="assets/spectre_gif4_nothing_leaves.gif" alt="Spectre processing an IR spectrum in the browser, without sending data to a server" loading="lazy"><figcaption>The browser demo runs locally.</figcaption></figure>
+<figure><img src="assets/spectre_gif5_nmr_next.gif" alt="Illustration of a proposed NMR extension, with peaks on a chemical shift axis" loading="lazy"><figcaption>NMR is next; it is not implemented yet.</figcaption></figure>
 </div>
-<p class="m">All four original GIFs: <a href="https://github.com/itsmilindsahu/Axiom/tree/main/Designs_Linkedin" target="_blank" rel="noopener">Axiom Labs Spectre showcase</a>.</p>
-<style>.spectre-demos img{aspect-ratio:1;object-fit:contain;background:#07090f}.spectre-demos figcaption a{white-space:nowrap}</style>
+<p class="m"><a href="https://github.com/itsmilindsahu/Spectre" target="_blank" rel="noopener">Explore the Spectre code on GitHub.</a></p>
+<style>
+.spectre-demos{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 18px}
+.spectre-demos img{aspect-ratio:1;object-fit:contain;border:0;border-radius:0}
+.spectre-demos figcaption{margin-top:8px;color:#bfc4cf;font-size:13px}
+@media(max-width:560px){.spectre-demos{grid-template-columns:1fr}}
+</style>
 
 <h2>Read the docs and code</h2>
 <p>Start with the project repository, then use the track-specific references below to plan a concrete contribution.</p>
